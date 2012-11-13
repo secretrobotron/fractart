@@ -1,7 +1,7 @@
 define(['renderer/renderer'], function(Renderer){
   
   function CopyRenderer(outputCanvas, inputCanvas){
-    Renderer.call(this, outputCanvas);
+    Renderer.call(this, 'Copy', outputCanvas);
     this.inputCanvas = inputCanvas;
   }
 

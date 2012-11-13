@@ -1,13 +1,21 @@
 define(['math/transform', 'util/promise'], function(Transform, Promise){
   
-  function Renderer(outputCanvas){
+  var __guid = 0;
+
+  function Renderer(type, outputCanvas){
     this.transform = new Transform();
     this.outputCanvas = outputCanvas;
     this.context = null;
 
+    type = type || '';
+    this.type = type + 'Renderer';
+    this.name = this.type + __guid++;
+
     this.transform.setStateFunction('translate', this.translationFunction);
     this.transform.setStateFunction('rotate', this.rotationFunction);
     this.transform.setStateFunction('scale', this.scaleFunction);
+
+    this.model = {};
   }
 
   Renderer.prototype.startRender = function(){

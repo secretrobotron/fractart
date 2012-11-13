@@ -1,7 +1,7 @@
 define(['renderer/renderer', 'math/transform'], function(Renderer, Transform){
   
   function RepeatCopyRenderer(outputCanvas, inputCanvas, steps){
-    Renderer.call(this, outputCanvas);
+    Renderer.call(this, 'RepeatCopy', outputCanvas);
     this.inputCanvas = inputCanvas;
     this.steps = steps;
     this.repeatTransforms = [];

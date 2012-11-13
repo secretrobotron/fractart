@@ -1,12 +1,18 @@
 define(['util/promise'], function(Promise){
   
-  function DataSource(type){
-    this.type = type || "null";
+  var __guid = 0;
 
-    this.generator = function(){
-      return [];
-    }
+  function DataSource(type){
+    type = type || '';
+    this.type = type + 'DataSource';
+    this.name = this.type + __guid++;
+
+    this.model = {};
   }
+
+  DataSource.prototype.generator = function(){
+    return [];
+  };
 
   DataSource.prototype.generate = function(){
     var promise = new Promise();
